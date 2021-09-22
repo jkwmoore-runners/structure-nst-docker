@@ -21,8 +21,8 @@ RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch &&  luaroc
 
 RUN git clone https://github.com/xch-liu/structure-nst.git
 
-COPY ./entrypoint.sh ./entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x /entrypoint.sh 
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
