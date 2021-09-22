@@ -22,4 +22,6 @@ RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch
 
 RUN . /usr/local/torch/bin/torch-activate &&  luarocks install hdf5
 
+COPY ./entrypoint.sh ./entrypoint.sh
+
 ENTRYPOINT entrypoint.sh
