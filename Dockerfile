@@ -22,4 +22,4 @@ RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch
 
 RUN . /usr/local/torch/bin/torch-activate &&  luarocks install hdf5
 
-CMD . /usr/local/torch/bin/torch-activate
+ENTRYPOINT . /usr/local/torch/bin/torch-activate
