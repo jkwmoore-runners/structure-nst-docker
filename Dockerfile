@@ -18,5 +18,8 @@ RUN cd ~/torch; bash install-deps  && apt-get autoremove && apt-get clean
 
 RUN cd ~/torch; ./install.sh -s
 
-RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch && luarocks install hdf5
-##Not finished
+RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch 
+
+RUN . /usr/local/torch/bin/torch-activate &&  luarocks install hdf5
+
+CMD . /usr/local/torch/bin/torch-activate
