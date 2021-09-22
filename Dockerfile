@@ -9,18 +9,15 @@ LABEL maintainer="James Moore - Research IT - Sheffield University"
 ENV INSTALL_ROOT="/usr/local/torch"
 ENV	PREFIX="/usr/local/torch"
 
-RUN mkdir -p $PREFIX
-RUN apt-get update || true && apt-get install -y git hdf5-tools libhdf5-dev hdf5-helpers
+RUN mkdir -p $PREFIX && apt-get update || true && \
+apt-get install -y git libhdf5-openmpi-dev && \
+git clone https://github.com/torch/distro.git ~/torch --recursive && \
+cd ~/torch; bash install-deps && \
+apt-get autoremove && apt-get clean
 
-RUN git clone https://github.com/torch/distro.git ~/torch --recursive
+RUN cd ~/torch; ./install.sh -s && rm -rf ~/torch
 
-RUN cd ~/torch; bash install-deps  && apt-get autoremove && apt-get clean
-
-RUN cd ~/torch; ./install.sh -s
-
-RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch 
-
-RUN . /usr/local/torch/bin/torch-activate &&  luarocks install hdf5
+RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch &&  luarocks install hdf5
 
 RUN git clone https://github.com/xch-liu/structure-nst.git
 
