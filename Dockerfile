@@ -26,4 +26,6 @@ RUN git clone https://github.com/xch-liu/structure-nst.git
 
 COPY ./entrypoint.sh ./entrypoint.sh
 
+RUN chmod +x ./entrypoint.sh
+
 ENTRYPOINT ["./entrypoint.sh"]
