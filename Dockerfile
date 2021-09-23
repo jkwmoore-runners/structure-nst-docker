@@ -17,13 +17,14 @@ apt-get autoremove && apt-get clean
 
 RUN cd ~/torch; ./install.sh -s && rm -rf ~/torch
 
-RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch &&  luarocks install hdf5 && \ 
+RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch &&  luarocks install hdf5 && \
 luarocks install https://raw.githubusercontent.com/deepmind/torch-hdf5/master/hdf5-0-0.rockspec
 
 RUN cd / && git clone https://github.com/xch-liu/structure-nst.git
 
 COPY ./entrypoint.sh /entrypoint.sh
+COPY ./test-processing.sh /test-processing.sh
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh /test-processing.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
