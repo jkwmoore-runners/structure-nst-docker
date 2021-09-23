@@ -10,7 +10,7 @@ ENV INSTALL_ROOT="/usr/local/torch"
 ENV	PREFIX="/usr/local/torch"
 
 RUN mkdir -p $PREFIX && apt-get update || true && \
-apt-get install -y git libhdf5-openmpi-dev && \
+apt-get install -y git libhdf5-openmpi-dev libopenmpi-dev && \
 git clone https://github.com/torch/distro.git ~/torch --recursive && \
 cd ~/torch; bash install-deps && \
 apt-get autoremove && apt-get clean
