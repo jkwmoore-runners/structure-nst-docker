@@ -21,4 +21,4 @@ jobs:
       run: docker build . --file Dockerfile --tag structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:$(date +%s)
       
     - name: Test image processing
-      run: docker run -it structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:$(date +%s) /test-processing.sh
+      run: docker run structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:$(date +%s) /test-processing.sh
