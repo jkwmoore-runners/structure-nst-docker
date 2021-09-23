@@ -9,6 +9,8 @@ MD5SUMORIG=asdasdasdasda
 
 if [[ $MD5SUM == $MD5SUMORIG ]]; then
   echo "MD5sums match: Test passed."
+  exit 0
 else
   echo "MD5sums do not match: Error - test failed."
+  exit 1
 fi
