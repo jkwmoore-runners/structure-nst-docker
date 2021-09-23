@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:$(date +%s)
+      run: docker build . --file Dockerfile --tag structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:builder
       
     - name: Test image processing
-      run: sleep 5 && docker run -t structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:$(date +%s) /test-processing.sh
+      run: docker run -t structure-nst-cuda-8.0-cudnn5-devel-ubuntu14.04:builder/test-processing.sh
