@@ -19,7 +19,7 @@ RUN cd ~/torch; ./install.sh -s && rm -rf ~/torch
 
 RUN . /usr/local/torch/bin/torch-activate && luarocks install cutorch &&  luarocks install hdf5
 
-RUN git clone https://github.com/xch-liu/structure-nst.git
+RUN cd / && git clone https://github.com/xch-liu/structure-nst.git
 
 COPY ./entrypoint.sh /entrypoint.sh
 
